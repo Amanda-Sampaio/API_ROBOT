@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-04-05T23:18:39.700728" rpa="false" schemaversion="5">
+<suite id="s1" name="Put" source="C:\API_ROBOT\put.robot">
+<test id="s1-t1" name="Cenário1: Atualizando cadastro" line="9">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-05T23:18:39.973915" level="INFO">${addcrud} = {'name': 'Amanda', 'age': '29', 'colour': 'Laranja'}</msg>
+<var>${addcrud}</var>
+<arg>name=Amanda</arg>
+<arg>age=29</arg>
+<arg>colour=Laranja</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-05T23:18:39.973651" elapsed="0.000295"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-05T23:18:39.974369" level="INFO">{'name': 'Amanda', 'age': '29', 'colour': 'Laranja'}</msg>
+<arg>${addcrud}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-05T23:18:39.974241" elapsed="0.000163"/>
+</kw>
+<kw name="PUT" owner="RequestsLibrary">
+<msg time="2025-04-05T23:18:42.109382" level="INFO">PUT Request : url=https://crudcrud.com/api/dd04c3480353463981ad89ab0304fabb/unicorns/67f1e2b0c12ab503e86d23e6 
+ path_url=/api/dd04c3480353463981ad89ab0304fabb/unicorns/67f1e2b0c12ab503e86d23e6 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '52', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Amanda", "age": "29", "colour": "Laranja"}' 
+ </msg>
+<msg time="2025-04-05T23:18:42.109547" level="INFO">PUT Response : url=https://crudcrud.com/api/dd04c3480353463981ad89ab0304fabb/unicorns/67f1e2b0c12ab503e86d23e6 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.14.2', 'Date': 'Sun, 06 Apr 2025 02:18:42 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Headers': 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range', 'Access-Control-Expose-Headers': 'Content-Length,Content-Range'} 
+ body=None 
+ </msg>
+<msg time="2025-04-05T23:18:42.109755" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${BASE_URL}/67f1e2b0c12ab503e86d23e6</arg>
+<arg>json=${addcrud}</arg>
+<doc>Sends a PUT request.</doc>
+<status status="PASS" start="2025-04-05T23:18:39.974654" elapsed="2.135149"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-05T23:18:42.111303" level="INFO"/>
+<arg>${response.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-05T23:18:42.110445" elapsed="0.000940"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-05T23:18:42.112658" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-05T23:18:42.111922" elapsed="0.000821"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-05T23:18:42.113944" level="INFO">OK</msg>
+<arg>${response.reason}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-05T23:18:42.113308" elapsed="0.000665"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${response.ok}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-04-05T23:18:42.114236" elapsed="0.000307"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-04-05T23:18:42.114990" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-04-05T23:18:42.114750" elapsed="0.000283"/>
+</kw>
+<status status="PASS" start="2025-04-05T23:18:39.972553" elapsed="2.142740"/>
+</test>
+<status status="PASS" start="2025-04-05T23:18:39.701804" elapsed="2.414476"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Put" id="s1" pass="1" fail="0" skip="0">Put</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

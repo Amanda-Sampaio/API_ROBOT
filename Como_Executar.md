@@ -25,6 +25,6 @@ Abrir a pasta no Visual Studio Code.<br>
 ![image](https://github.com/user-attachments/assets/bcf3dc36-baf8-40a4-82a7-413bbf2f5d92)
 
 #### Passo 7: 
-Abrir o terminal e executar o comando "robot nomedoarquivo", veja o exemplo na imagem abaixo. <br>
+Para executar batsa abrir o terminal e informar o comando "robot nomedoarquivo.robot", veja o exemplo na imagem abaixo. <br>
 
 ![image](https://github.com/user-attachments/assets/169ade6d-4619-4471-888c-a398fab2fc6a)
